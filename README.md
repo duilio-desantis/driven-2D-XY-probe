@@ -27,7 +27,11 @@ Euler–Maruyama updates integrate $d\theta_{\mathbf r}=-\partial_{\theta_{\math
 
 For the selected probe direction,
 
-$$A_p(t)=\frac{E_*}{\omega_p}\cos(\omega_p t+\phi_p),\qquad E_p(t)=-\dot A_p(t)=E_*\sin(\omega_p t+\phi_p),$$
+$$
+A_{p}(t) = \frac{E_{*}}{\omega_{p}}\cos(\omega_{p}t+\phi_{p}),
+\qquad
+E_{p}(t) = -\dot{A}_{p}(t) = E_{*}\sin(\omega_{p}t+\phi_{p})
+$$
 
 where $E_*=E_0\sqrt{1+(\omega_p/\omega_c)^2}$. The parameters are `probe_E0`, `probe_omega`, `probe_phase`, and `probe_omega_c`; the default cutoff is 100. For $\omega_p\ll\omega_c$, $E_*\simeq E_0$.
 
