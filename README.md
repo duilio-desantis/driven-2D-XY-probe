@@ -28,18 +28,24 @@ Euler–Maruyama updates integrate $d\theta_{\mathbf r}=-\partial_{\theta_{\math
 For the selected probe direction,
 
 $$
-A_{p}(t) = \frac{E_{*}}{\omega_{p}}\cos(\omega_{p}t+\phi_{p}),
+A_{p}(t) = \frac{E_{\ast}}{\omega_{p}}\cos(\omega_{p}t+\phi_{p}),
 \qquad
-E_{p}(t) = -\dot{A}_{p}(t) = E_{*}\sin(\omega_{p}t+\phi_{p})
+E_{p}(t) = -\frac{dA_{p}(t)}{dt}
+= E_{\ast}\sin(\omega_{p}t+\phi_{p})
 $$
 
-where $E_*=E_0\sqrt{1+(\omega_p/\omega_c)^2}$. The parameters are `probe_E0`, `probe_omega`, `probe_phase`, and `probe_omega_c`; the default cutoff is 100. For $\omega_p\ll\omega_c$, $E_*\simeq E_0$.
+where
+
+$$
+E_{\ast} = E_{0}\sqrt{1+\left(\frac{\omega_{p}}{\omega_{c}}\right)^2}.
+$$
+
+The parameters are `probe_E0`, `probe_omega`, `probe_phase`, and
+`probe_omega_c`.
 
 The spatially averaged current is $j_p(t)=J(t)\langle\sin(\theta_{\mathbf r}-\theta_{\mathbf r+\hat p}-A_p)\rangle_{\mathbf r}$. Using the positive-exponent Fourier convention,
 
 $$\sigma(\omega_p)=\frac{\sum_k j_p(t_k)e^{i\omega_p t_k}}{\sum_k E_p(t_k)e^{i\omega_p t_k}}.$$
-
-The uniform sampling interval cancels in this ratio. Measurements use the updated phase field and the coupling and vector potential at that same time. Ensemble results average the complex conductivity across seeds `seed` through `seed + N - 1`.
 
 ## Output
 
